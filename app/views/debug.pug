@@ -1,0 +1,9 @@
+doctype html
+html
+    head
+        title= "Pug template"
+    body
+        p Your inputs:
+        ul
+            each value, index in params
+                li= index + ': ' + value

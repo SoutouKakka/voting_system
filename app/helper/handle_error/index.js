@@ -8,6 +8,11 @@ const ERROR_KEYS = {
 		status: 400,
 		metaCode: 4002,
 		message: 'The HKID had already voted this campaign'
+	},
+	CAMPAIGN_NOT_FOUND: {
+		status: 404,
+		metaCode: 4041,
+		message: 'Campaign not found'
 	}
 };
 

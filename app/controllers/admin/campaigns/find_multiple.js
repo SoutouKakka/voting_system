@@ -1,4 +1,4 @@
-const campaignModel = require('../../../models/compaigns');
+const campaignModel = require('../../../models/campaigns');
 
 async function findMultiple(ctx) {
 	const { query: { start_time: startTime, end_time: endTime } } = ctx;

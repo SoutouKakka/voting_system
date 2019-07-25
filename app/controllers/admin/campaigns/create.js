@@ -1,4 +1,4 @@
-const campaignModel = require('../../../models/compaigns');
+const campaignModel = require('../../../models/campaigns');
 
 async function create(ctx) {
 	const { request: { body } } = ctx;

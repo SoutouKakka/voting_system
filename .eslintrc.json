@@ -17,7 +17,7 @@
         "no-console": ["error", {
             "allow": ["log", "warn", "error"]
         }],
-        "no-underscore-dangle": [2, { "allow": ["_this", "_update"] }],
+        "no-underscore-dangle": [2, { "allow": ["_this", "_update", "_id"] }],
         "indent": [2, "tab"],
         "no-tabs": 0,
         "func-names": ["error", "never"],

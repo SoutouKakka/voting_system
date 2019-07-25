@@ -1,5 +1,5 @@
 const { ERROR_KEYS, appendErrorMessage } = require('../../../helper/handle_error');
-const campaignModel = require('../../../models/compaigns');
+const campaignModel = require('../../../models/campaigns');
 
 async function remove(ctx) {
 	const { params: { id: campaignID } } = ctx;

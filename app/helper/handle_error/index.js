@@ -13,6 +13,11 @@ const ERROR_KEYS = {
 		status: 404,
 		metaCode: 4041,
 		message: 'Campaign not found'
+	},
+	CHOICE_NOT_FOUND: {
+		status: 404,
+		metaCode: 4042,
+		message: 'Campaign choice not found'
 	}
 };
 

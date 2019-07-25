@@ -21,6 +21,8 @@
         "indent": [2, "tab"],
         "no-tabs": 0,
         "func-names": ["error", "never"],
-        "comma-dangle": ["error", "never"]
+        "comma-dangle": ["error", "never"],
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "no-await-in-loop": 0
     }
 }

@@ -24,8 +24,11 @@
     "koa-pug": "^3.0.0-2",
     "koa-router": "^7.4.0",
     "lodash": "^4.17.11",
+    "md5": "^2.2.1",
+    "moment": "^2.24.0",
     "mongoose": "^5.5.12",
-    "pug": "^2.0.3"
+    "pug": "^2.0.3",
+    "validid": "^1.1.0"
   },
   "devDependencies": {
     "eslint": "5.3.0",

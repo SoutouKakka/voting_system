@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const moment = require('moment');
 const validid = require('validid');
 
 const { ERROR_KEYS, appendErrorMessage } = require('../../../helper/handle_error');
@@ -13,17 +14,25 @@ async function create(ctx) {
 		appendErrorMessage(ctx, ERROR_KEYS.HKID_INVALID);
 		return;
 	}
-	const campaign = await campaignModel.findChoiceIDsByID(campaignID);
+	const campaign = await campaignModel.findByID(campaignID);
+	// check if campaign exists
 	if (!campaign) {
-		// no campaign
 		appendErrorMessage(ctx, ERROR_KEYS.CAMPAIGN_NOT_FOUND);
+		return;
+	}
+	// check if campaign is expired
+	const startTime = moment.utc(campaign.start_time);
+	const endTime = moment.utc(campaign.end_time);
+	const now = moment.utc();
+	if (!now.isBetween(startTime, endTime)) {
+		appendErrorMessage(ctx, ERROR_KEYS.CAMPAIGN_EXPIRED);
 		return;
 	}
 	const campaignChoiceIDs = _.map(campaign.choices, (choice) => {
 		return choice._id.toString();
 	});
+	// check if campaign choice is valid
 	if (campaignChoiceIDs.indexOf(choiceID) === -1) {
-		// no such choice
 		appendErrorMessage(ctx, ERROR_KEYS.CHOICE_NOT_FOUND);
 		return;
 	}

@@ -1,33 +1,35 @@
 const Router = require('koa-router');
 
-const common = require('./controllers/common');
-const adminCampaigns = require('./controllers/admin/campaigns');
+const commonController = require('./controllers/common');
+const adminCampaignsController = require('./controllers/admin/campaigns');
 const adminVotes = require('./controllers/admin/votes');
+const campaignsController = require('./controllers/campaigns');
 
 const router = new Router();
 
 // health check
-router.get('/whoami', common.whoami);
+router.get('/whoami', commonController.whoami);
 
 // view endpoints
 router
-	.get('/campaigns', common.viewDebug)
-	.get('/campaigns/:id', common.viewDebug)
-	.get('/campaigns/:id/results', common.viewDebug);
+	.get('/campaigns', campaignsController.findMultiple)
+	.get('/campaigns/new', commonController.viewDebug)
+	.get('/campaigns/:id', commonController.viewDebug)
+	.get('/campaigns/:id/results', commonController.viewDebug);
 
 // admin endpoints
 router
-	.post('/admin/campaigns', adminCampaigns.create)
-	.get('/admin/campaigns', adminCampaigns.findMultiple)
-	.get('/admin/campaigns/:id', adminCampaigns.find)
-	.put('/admin/campaigns/:id', adminCampaigns.update)
-	.delete('/admin/campaigns/:id', adminCampaigns.remove)
-	.get('/admin/campaigns/:id/result', adminCampaigns.getResult)
+	.post('/admin/campaigns', adminCampaignsController.create)
+	.get('/admin/campaigns', adminCampaignsController.findMultiple)
+	.get('/admin/campaigns/:id', adminCampaignsController.find)
+	.put('/admin/campaigns/:id', adminCampaignsController.update)
+	.delete('/admin/campaigns/:id', adminCampaignsController.remove)
+	.get('/admin/campaigns/:id/result', adminCampaignsController.getResult)
 
 	.post('/admin/votes', adminVotes.create)
 	.get('/admin/votes/count', adminVotes.getCount)
 
-	.put('/admin/choices/:id', common.apiDebug);
+	.put('/admin/choices/:id', commonController.apiDebug);
 
 
 module.exports = router;

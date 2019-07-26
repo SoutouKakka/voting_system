@@ -22,6 +22,7 @@ router
 	.get('/admin/campaigns/:id', adminCampaigns.find)
 	.put('/admin/campaigns/:id', adminCampaigns.update)
 	.delete('/admin/campaigns/:id', adminCampaigns.remove)
+	.get('/admin/campaigns/:id/result', adminCampaigns.getResult)
 
 	.post('/admin/votes', adminVotes.create)
 	.get('/admin/votes/count', adminVotes.getCount)

@@ -1,5 +1,3 @@
-const _ = require('lodash');
-
 const { ERROR_KEYS, appendErrorMessage } = require('../../../helper/handle_error');
 const campaignModel = require('../../../models/campaigns');
 const voteModel = require('../../../models/votes');

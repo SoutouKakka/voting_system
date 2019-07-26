@@ -15,8 +15,8 @@ async function initApp() {
 		.use(router.allowedMethods());
 
 	const pug = new Pug({
-		viewPath: '../app/views',
-		basedir: '../app/views',
+		viewPath: './app/views',
+		basedir: './app/views',
 		noCache: true
 	});
 	pug.use(app);

@@ -14,8 +14,8 @@ router.get('/whoami', commonController.whoami);
 router
 	.get('/campaigns', campaignsController.findMultiple)
 	.get('/campaigns/new', commonController.viewDebug)
-	.get('/campaigns/:id', commonController.viewDebug)
-	.get('/campaigns/:id/results', commonController.viewDebug);
+	.get('/campaigns/:id', campaignsController.find)
+	.get('/campaigns/:id/result', campaignsController.getResult);
 
 // admin endpoints
 router

@@ -1,5 +1,9 @@
+const find = require('./find');
 const findMultiple = require('./find_multiple');
+const getResult = require('./get_result')
 
 module.exports = {
-	findMultiple
+	find,
+	findMultiple,
+	getResult
 };

@@ -29,7 +29,8 @@ async function create(ctx) {
 		return;
 	}
 	const campaignChoiceIDs = _.map(campaign.choices, (choice) => {
-		return choice._id.toString();
+		const id = choice._id.toString();
+		return id;
 	});
 	// check if campaign choice is valid
 	if (campaignChoiceIDs.indexOf(choiceID) === -1) {

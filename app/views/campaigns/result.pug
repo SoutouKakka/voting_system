@@ -1,0 +1,17 @@
+doctype html
+html
+    head
+        title= "Pug template"
+        script
+            include ../js/post_vote.js
+    body
+        h1= campaign.name
+        h4 #{campaign.startTime} | #{campaign.endTime}
+        p= campaign.description
+        div(class="choices")
+            each choice in campaign.choices
+                div(class="choice-name")
+                    p= choice.choiceName
+                div(class="choice-count")
+                    p= choice.choiceCount
+

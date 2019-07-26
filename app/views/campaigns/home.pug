@@ -6,7 +6,8 @@ html
         h1 Votes:
         div(class="campaign-list")
             each campaign in campaigns
-                div(class="campaign-header")
-                    h2= campaign.name
-                div(class="campaign-details")
-                    p #{campaign.startTime} + #{campaign.endTime}
+                div(class="campaign" onclick=`window.location.href='/campaigns/${campaign.id}'`)
+                    div(class="campaign-header")
+                        h2= campaign.name
+                    div(class="campaign-details")
+                        p #{campaign.startTime} | #{campaign.endTime}

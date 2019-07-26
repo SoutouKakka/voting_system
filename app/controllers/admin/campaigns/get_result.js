@@ -2,7 +2,7 @@ const { ERROR_KEYS, appendErrorMessage } = require('../../../helper/handle_error
 const campaignModel = require('../../../models/campaigns');
 const voteModel = require('../../../models/votes');
 
-async function find(ctx) {
+async function getResult(ctx) {
 	const { params: { id: campaignID } } = ctx;
 	const campaign = await campaignModel.findByID(campaignID);
 	if (!campaign) {
@@ -28,4 +28,4 @@ async function find(ctx) {
 	ctx.status = 200;
 }
 
-module.exports = find;
+module.exports = getResult;

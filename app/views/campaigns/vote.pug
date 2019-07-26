@@ -1,0 +1,20 @@
+doctype html
+html
+    head
+        title= "Pug template"
+        script
+            include ../js/post_vote.js
+    body
+        h1= campaign.name
+        h4 #{campaign.startTime} | #{campaign.endTime}
+        p= campaign.description
+        div(class="form")
+            form(name="choices" class="choices" onsubmit="makeVote(this); return false;")
+                div
+                    each choice in campaign.choices
+                        input(type="radio" name="choice_id" value=choice.id)
+                        | #{choice.name}
+                    input(type="text" name="hkid" placeholder="HKID" required)
+                    input(type="hidden" name="campaign_id" value=campaign.id)
+                div
+                    input(type="submit" value="Submit")

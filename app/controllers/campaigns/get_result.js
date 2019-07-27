@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const moment = require('moment');
 
 const { ERROR_KEYS, appendErrorMessage } = require('../../helper/handle_error');

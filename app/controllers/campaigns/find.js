@@ -26,7 +26,7 @@ async function find(ctx) {
 		startTime: moment.utc(startTime).format(timeFormat),
 		endTime: moment.utc(endTime).format(timeFormat)
 	};
-	meta.choices = _.map(campaign.choices, (choice) => {
+	meta.choices = _.map(choices, (choice) => {
 		const output = {
 			id: choice._id,
 			name: choice.name,

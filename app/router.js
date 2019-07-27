@@ -27,9 +27,7 @@ router
 	.get('/admin/campaigns/:id/result', adminCampaignsController.getResult)
 
 	.post('/admin/votes', adminVotes.create)
-	.get('/admin/votes/count', adminVotes.getCount)
-
-	.put('/admin/choices/:id', commonController.apiDebug);
+	.get('/admin/votes/count', adminVotes.getCount);
 
 
 module.exports = router;

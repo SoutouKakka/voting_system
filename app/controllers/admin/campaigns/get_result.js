@@ -10,7 +10,9 @@ async function getResult(ctx) {
 		appendErrorMessage(ctx, ERROR_KEYS.CAMPAIGN_NOT_FOUND);
 		return;
 	}
-	const { _id, name, description, choices } = campaign;
+	const {
+		_id, name, description, choices
+	} = campaign;
 	const results = {
 		_id: _id.toString(),
 		name,
@@ -20,8 +22,8 @@ async function getResult(ctx) {
 	for (let i = 0; i < choices.length; i++) {
 		const choice = choices[i];
 		const choiceID = choice._id.toString();
-		const choiceName = choice.name.toString();
-		const choiceImage = choice.image.toString();
+		const choiceName = choice.name;
+		const choiceImage = choice.image;
 		const choiceCount = await voteModel.getCountByChoiceID(choiceID);
 		results.choices.push({
 			choiceID, choiceName, choiceImage, choiceCount

@@ -5,7 +5,7 @@ html
         h1 Votes:
         div(class="campaign-list")
             each campaign in campaigns
-                div(class="campaign" onclick=`window.location.href='/campaigns/${campaign.id}'`)
+                div(class="campaign" onclick=`window.location.href='/campaigns/${campaign.id}${(campaign.active) ? '' : '/result'}'`)
                     div(class="campaign-header")
                         h2= campaign.name
                     div(class="campaign-details")

@@ -13,7 +13,7 @@ router.get('/whoami', commonController.whoami);
 // view endpoints
 router
 	.get('/campaigns', campaignsController.findMultiple)
-	.get('/campaigns/new', commonController.viewDebug)
+	.get('/campaigns/new', campaignsController.create)
 	.get('/campaigns/:id', campaignsController.find)
 	.get('/campaigns/:id/result', campaignsController.getResult);
 

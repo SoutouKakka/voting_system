@@ -36,7 +36,7 @@ class Campaign {
 				$lte: moment.utc(endTime, 'YYYY-MM-DD')
 			};
 		}
-		return CampaignModel.find(query).sort({ start_time: -1, end_time: -1 });
+		return CampaignModel.find(query).sort({ end_time: -1, start_time: -1 });
 	}
 
 	static async updateByID(CampaignID, updateDocument) {

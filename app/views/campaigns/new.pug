@@ -1,0 +1,25 @@
+doctype html
+html
+    include ../header.pug
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js")
+    script
+        include ../js/post_campaign.js
+    body
+        h1 Create a new campaign
+        div(class="form")
+            form(name="campaign" class="new-campaign" onsubmit="createCampaign(this); return false;")
+                div(class="campaign-main-fields")
+                    input(type="text" name="name" placeholder="Name of campaign" required)
+                    input(type="text" name="description" placeholder="Description of campaign")
+                    input(type="text" name="image" placeholder="Image URL of campaign")
+                    input(type="text" name="start_time" placeholder="Start time of campaign - YYYY-MM-DD" value="2018-08-01" required)
+                    input(type="text" name="end_time" placeholder="End time of campaign - YYYY-MM-DD" value="2018-09-01" required)
+                div(class="campaign-choices")
+                    - var i = 0;
+                    while i < defaultChoiceLength
+                        div(class="campaign-choice")
+                            input(type="text" name=`choices[${i}]['name']` placeholder="Name of choice")
+                            input(type="text" name=`choices[${i++}]['image']` placeholder="Image URL of choice")
+                input(type="submit" value="Submit")
+

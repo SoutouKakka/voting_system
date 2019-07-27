@@ -4,14 +4,19 @@ const ERROR_KEYS = {
 		metaCode: 4001,
 		message: 'Invalid HKID'
 	},
-	ALREADY_VOTED: {
+	CAMPAIGN_TIME_INVALID: {
 		status: 400,
 		metaCode: 4002,
+		message: 'Start time or end time for this campaign is invalid'
+	},
+	ALREADY_VOTED: {
+		status: 400,
+		metaCode: 4003,
 		message: 'The HKID had already voted this campaign'
 	},
 	CAMPAIGN_EXPIRED: {
 		status: 400,
-		metaCode: 4003,
+		metaCode: 4004,
 		message: 'This campaign is expired'
 	},
 	CAMPAIGN_NOT_FOUND: {

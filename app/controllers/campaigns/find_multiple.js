@@ -8,11 +8,16 @@ async function findMultiple(ctx) {
 	// prettify campaigns array
 	const campaigns = _.map(searchResults, (searchResult) => {
 		const timeFormat = 'MMM D, YYYY';
+		const startTimeMoment = moment.utc(searchResult.start_time);
+		const endTimeMoment = moment.utc(searchResult.end_time);
+		const now = moment.utc();
+		const active = now.isSameOrBefore(endTimeMoment);
 		return {
 			id: searchResult._id.toString(),
 			name: searchResult.name,
-			startTime: moment.utc(searchResult.start_time).format(timeFormat),
-			endTime: moment.utc(searchResult.end_time).format(timeFormat)
+			startTime: startTimeMoment.format(timeFormat),
+			endTime: endTimeMoment.format(timeFormat),
+			active
 		};
 	});
 	ctx.render('campaigns/home', { campaigns });

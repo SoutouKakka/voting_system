@@ -1,9 +1,8 @@
 doctype html
 html
-    head
-        title= "Pug template"
-        script
-            include ../js/post_vote.js
+    include ../header.pug
+    script
+        include ../js/post_vote.js
     body
         h1= campaign.name
         h4 #{campaign.startTime} | #{campaign.endTime}

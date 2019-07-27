@@ -1,7 +1,6 @@
 const _ = require('lodash');
 const moment = require('moment');
 
-const { ERROR_KEYS, appendErrorMessage } = require('../../helper/handle_error');
 const campaignModel = require('../../models/campaigns');
 
 async function find(ctx) {
@@ -9,7 +8,8 @@ async function find(ctx) {
 	const campaign = await campaignModel.findByID(campaignID);
 	if (!campaign) {
 		// no campaign
-		appendErrorMessage(ctx, ERROR_KEYS.CAMPAIGN_NOT_FOUND);
+		ctx.render('campaigns/not_found');
+		ctx.status = 200;
 		return;
 	}
 	// form campaign meta to pug

@@ -1,6 +1,6 @@
+const _ = require('lodash');
 const moment = require('moment');
 
-const { ERROR_KEYS, appendErrorMessage } = require('../../helper/handle_error');
 const campaignModel = require('../../models/campaigns');
 const voteModel = require('../../models/votes');
 
@@ -9,7 +9,8 @@ async function getResult(ctx) {
 	const campaign = await campaignModel.findByID(campaignID);
 	if (!campaign) {
 		// no campaign
-		appendErrorMessage(ctx, ERROR_KEYS.CAMPAIGN_NOT_FOUND);
+		ctx.render('campaigns/not_found');
+		ctx.status = 200;
 		return;
 	}
 	const {
@@ -27,9 +28,12 @@ async function getResult(ctx) {
 	for (let i = 0; i < choices.length; i++) {
 		const choice = choices[i];
 		const choiceID = choice._id.toString();
-		const choiceName = choice.name.toString();
+		const choiceName = choice.name;
+		const choiceImage = choice.image;
 		const choiceCount = await voteModel.getCountByChoiceID(choiceID);
-		meta.choices.push({ choiceID, choiceName, choiceCount });
+		meta.choices.push({
+			choiceID, choiceName, choiceImage, choiceCount
+		});
 	}
 	ctx.render('campaigns/result', { campaign: meta });
 	ctx.status = 200;

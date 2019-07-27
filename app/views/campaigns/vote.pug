@@ -3,21 +3,30 @@ html
     include ../header.pug
     script
         include ../js/post_vote.js
+    style
+        include ../css/radio.css
     body
-        h1= campaign.name
-        h4 #{campaign.startTime} | #{campaign.endTime}
-        if campaign.image
-            img(src=campaign.image)
-        p= campaign.description
-        div(class="form")
-            form(name="choices" class="choices" onsubmit="makeVote(this); return false;")
-                div
-                    each choice in campaign.choices
-                        input(type="radio" name="choice_id" value=choice.id)
-                        | #{choice.name}
-                        if choice.image
-                            img(src=choice.image)
-                    input(type="text" name="hkid" placeholder="HKID" required)
-                    input(type="hidden" name="campaign_id" value=campaign.id)
-                div
-                    input(type="submit" value="Submit")
+        div(class="campaign")
+            div(class="campaign-header")
+                h2= campaign.name                
+            div(class="campaign-description")
+                p= campaign.description
+            div(class="campaign-details")
+                p #{campaign.startTime} | #{campaign.endTime}
+                if campaign.image
+                    img(src=campaign.image)
+            div
+                form(name="choices" class="choices" onsubmit="makeVote(this); return false;")
+                    div(name="choice-list")
+                        each choice in campaign.choices
+                            label(class=`choice-${choice.id}`)
+                                div(class="choice")
+                                    div 
+                                        input(type="radio" name="choice_id" value=choice.id)
+                                        | #{choice.name}
+                                    if choice.image
+                                        img(src=choice.image)
+                        input(type="text" name="hkid" placeholder="HKID" required)
+                        input(type="hidden" name="campaign_id" value=campaign.id)
+                    div(class="submit")
+                        input(type="submit" value="Submit")

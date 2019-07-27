@@ -21,8 +21,11 @@ async function getResult(ctx) {
 		const choice = choices[i];
 		const choiceID = choice._id.toString();
 		const choiceName = choice.name.toString();
+		const choiceImage = choice.image.toString();
 		const choiceCount = await voteModel.getCountByChoiceID(choiceID);
-		results.choices.push({ choiceID, choiceName, choiceCount });
+		results.choices.push({
+			choiceID, choiceName, choiceImage, choiceCount
+		});
 	}
 	ctx.body = results;
 	ctx.status = 200;

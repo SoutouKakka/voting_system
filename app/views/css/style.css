@@ -1,0 +1,83 @@
+.campaign-list {
+  background: #3399ff;
+	padding: 10px;
+	border-radius: 25px;
+}
+
+.campaign {
+  background: #cce5ff;
+	margin: 5px;
+	padding: 1em;
+	border-radius: 10px;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+	font-family: Sans-serif;
+	display: block;
+	margin-block-start: 0em;
+	margin-block-end: 0em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+}
+
+.campaign-description {
+	color: #424242;
+	font-size: 1em;
+}
+
+.campaign-details {
+	color: #424242;
+	font-size: 0.7em;
+}
+
+img {
+	max-height: 150px;
+	width: auto;
+}
+
+.campaign h1 {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.campaign h2 {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.choice-list {                                          
+	flex-direction: column;
+	display: inline-flex;
+}
+
+.choice {                                          
+	display: grid;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #424242;
+	border-radius: 10px;
+}
+
+.campaign-fields {
+	background: #cce5ff;
+	display: grid;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #f3fcff;
+	border-radius: 10px;
+}
+
+.campaign-main-fields, .campaign-choices {
+	background: #8fc4fc;
+	display: grid;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #424242;
+	border-radius: 10px;
+}

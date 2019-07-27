@@ -1,5 +1,5 @@
 async function createCampaign() {
-	var form = toJSONString(document.forms.campaign);
+	var form = toJSON(document.forms.campaign);
 	var rawResponse = await fetch('/admin/campaigns', {
 		method: 'POST',
 		headers: {
@@ -16,7 +16,7 @@ async function createCampaign() {
 	window.location.href = `/campaigns/${content.data._id}`;
 }
 
-function toJSONString( form ) {
+function toJSON( form ) {
 	var obj = {};
 	var elements = form.querySelectorAll( "input, select, textarea" );
 	for( var i = 0; i < elements.length; ++i ) {

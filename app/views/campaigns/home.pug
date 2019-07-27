@@ -2,8 +2,8 @@ doctype html
 html
     include ../header.pug
     body
-        h1 Votes:
         div(class="campaign-list")
+            h1 Current votes:
             each campaign in campaigns
                 div(class="campaign" onclick=`window.location.href='/campaigns/${campaign.id}${(campaign.active) ? '' : '/result'}'`)
                     div(class="campaign-header")

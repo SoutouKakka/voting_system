@@ -1,4 +1,4 @@
-const { ERROR_KEYS, appendErrorMessage } = require('../../../helper/handle_error');
+const { ERROR_KEYS, CustomError } = require('../../../helper/handle_error');
 const campaignModel = require('../../../models/campaigns');
 
 async function update(ctx) {
@@ -6,8 +6,7 @@ async function update(ctx) {
 	const campaign = await campaignModel.findByID(campaignID);
 	if (!campaign) {
 		// no campaign
-		appendErrorMessage(ctx, ERROR_KEYS.CAMPAIGN_NOT_FOUND);
-		return;
+		throw new CustomError(ERROR_KEYS.CAMPAIGN_NOT_FOUND);
 	}
 	ctx.body = await campaignModel.updateByID(campaignID, body);
 	ctx.status = 200;

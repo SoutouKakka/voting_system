@@ -1,6 +1,6 @@
 const moment = require('moment');
 
-const { ERROR_KEYS, appendErrorMessage } = require('../../../helper/handle_error');
+const { ERROR_KEYS, CustomError } = require('../../../helper/handle_error');
 const campaignModel = require('../../../models/campaigns');
 
 async function create(ctx) {
@@ -9,8 +9,7 @@ async function create(ctx) {
 	const endTime = moment.utc(body.end_time);
 	if (!startTime.isValid() || !endTime.isValid() || !startTime.isSameOrBefore(endTime)) {
 		// campaign time is not valid
-		appendErrorMessage(ctx, ERROR_KEYS.CAMPAIGN_TIME_INVALID);
-		return;
+		throw new CustomError(ERROR_KEYS.CAMPAIGN_TIME_INVALID);
 	}
 	const campaign = await campaignModel.create(body);
 	ctx.body = campaign;

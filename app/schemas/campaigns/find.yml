@@ -1,0 +1,25 @@
+paths:
+  "/admin/campaigns/{id}":
+    get:
+      tags:
+        - Campaigns
+      summary: Find campaign By ID
+      operationID: find_campaign_by_id
+      parameters:
+        - in: path
+          name: id
+          description: The campaign's objectId
+          schema:
+            $ref: "#/components/schemas/ObjectId"
+          required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                properties:
+                  meta:
+                    $ref: "#/components/schemas/MetaOk"
+                  data:
+                    $ref: "#/components/schemas/CampaignResource"

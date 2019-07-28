@@ -1,4 +1,4 @@
-const { ERROR_KEYS, appendErrorMessage } = require('../../../helper/handle_error');
+const { ERROR_KEYS, CustomError } = require('../../../helper/handle_error');
 const campaignModel = require('../../../models/campaigns');
 const voteModel = require('../../../models/votes');
 
@@ -7,8 +7,7 @@ async function find(ctx) {
 	const campaign = await campaignModel.findChoiceIDsByID(campaignID);
 	if (!campaign) {
 		// no campaign
-		appendErrorMessage(ctx, ERROR_KEYS.CAMPAIGN_NOT_FOUND);
-		return;
+		throw new CustomError(ERROR_KEYS.CAMPAIGN_NOT_FOUND);
 	}
 	const { choices } = campaign;
 	const results = {};

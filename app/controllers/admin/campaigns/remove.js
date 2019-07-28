@@ -1,4 +1,4 @@
-const { ERROR_KEYS, appendErrorMessage } = require('../../../helper/handle_error');
+const { ERROR_KEYS, CustomError } = require('../../../helper/handle_error');
 const campaignModel = require('../../../models/campaigns');
 
 async function remove(ctx) {
@@ -6,8 +6,7 @@ async function remove(ctx) {
 	const campaign = await campaignModel.removeByID(campaignID);
 	if (!campaign) {
 		// no campaign
-		appendErrorMessage(ctx, ERROR_KEYS.CAMPAIGN_NOT_FOUND);
-		return;
+		throw new CustomError(ERROR_KEYS.CAMPAIGN_NOT_FOUND);
 	}
 	ctx.body = campaign;
 	ctx.status = 200;

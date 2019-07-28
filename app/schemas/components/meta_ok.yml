@@ -1,0 +1,14 @@
+components:
+  schemas:
+    MetaOk:
+      type: object
+      properties:
+        code:
+          enum:
+            - 200
+        message:
+          type: string
+          example: OK
+      required:
+        - code
+        - message

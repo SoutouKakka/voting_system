@@ -2,7 +2,7 @@ const _ = require('lodash');
 const moment = require('moment');
 const validid = require('validid');
 
-const { ERROR_KEYS, appendErrorMessage } = require('../../../helper/handle_error');
+const { ERROR_KEYS, CustomError } = require('../../../helper/handle_error');
 const campaignModel = require('../../../models/campaigns');
 const voteModel = require('../../../models/votes');
 
@@ -11,22 +11,19 @@ async function create(ctx) {
 	const { hkid, campaign_id: campaignID, choice_id: choiceID } = body;
 	if (!validid.hkid(hkid)) {
 		// hkid is not valid
-		appendErrorMessage(ctx, ERROR_KEYS.HKID_INVALID);
-		return;
+		throw new CustomError(ERROR_KEYS.HKID_INVALID);
 	}
 	const campaign = await campaignModel.findByID(campaignID);
 	// check if campaign exists
 	if (!campaign) {
-		appendErrorMessage(ctx, ERROR_KEYS.CAMPAIGN_NOT_FOUND);
-		return;
+		throw new CustomError(ERROR_KEYS.CAMPAIGN_NOT_FOUND);
 	}
 	// check if campaign is expired
 	const startTime = moment.utc(campaign.start_time);
 	const endTime = moment.utc(campaign.end_time);
 	const now = moment.utc();
 	if (!now.isBetween(startTime, endTime)) {
-		appendErrorMessage(ctx, ERROR_KEYS.CAMPAIGN_EXPIRED);
-		return;
+		throw new CustomError(ERROR_KEYS.CAMPAIGN_EXPIRED);
 	}
 	const campaignChoiceIDs = _.map(campaign.choices, (choice) => {
 		const id = choice._id.toString();
@@ -34,15 +31,13 @@ async function create(ctx) {
 	});
 	// check if campaign choice is valid
 	if (campaignChoiceIDs.indexOf(choiceID) === -1) {
-		appendErrorMessage(ctx, ERROR_KEYS.CHOICE_NOT_FOUND);
-		return;
+		throw new CustomError(ERROR_KEYS.CHOICE_NOT_FOUND);
 	}
 	const hkidHash = voteModel.hash(hkid);
 	const existingVote = await voteModel.findByCampaignIDHkidHash(campaignID, hkidHash);
 	if (existingVote) {
 		// already voted
-		appendErrorMessage(ctx, ERROR_KEYS.ALREADY_VOTED);
-		return;
+		throw new CustomError(ERROR_KEYS.ALREADY_VOTED);
 	}
 	const vote = await voteModel.create({
 		hkid_hash: hkidHash,

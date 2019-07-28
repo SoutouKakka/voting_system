@@ -1,0 +1,40 @@
+components:
+  schemas:
+    CampaignResource:
+      type: object
+      properties:
+        _id:
+          schema:
+            $ref: "#/components/schemas/ObjectId"
+        name:
+          type: string
+          example: 'Title of a campaign'
+        description:
+          type: string
+          example: 'Description of a campaign'
+        image:
+          type: string
+          description: Image URL for a campaign
+          example: 'www.image-for-campaign.jpg'
+        start_time:
+          type: string
+          format: date-time
+          example: '2019-01-01T00:00:00Z'
+        end_time:
+          type: string
+          format: date-time
+          example: '2019-01-01T00:00:00Z'
+        choices:
+          type: array
+          minItems: 2
+          items:
+            type: object
+            $ref: "#/components/schemas/ObjectId"
+        created_at:
+          type: string
+          format: date-time
+          example: '2019-01-01T00:00:00Z'
+        updated_at:
+          type: string
+          format: date-time
+          example: '2019-01-01T00:00:00Z'

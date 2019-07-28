@@ -1,0 +1,23 @@
+components:
+  schemas:
+    ChoiceResource:
+      type: object
+      properties:
+        _id:
+          schema:
+            $ref: "#/components/schemas/ObjectId"
+        name:
+          type: string
+          example: 'A choice for campaign'
+        image:
+          type: string
+          description: Image URL for a choice
+          exmaple: 'www.image-for-choice.jpg'
+        created_at:
+          type: string
+          format: date-time
+          example: '2019-01-01T00:00:00Z'
+        updated_at:
+          type: string
+          format: date-time
+          example: '2019-01-01T00:00:00Z'

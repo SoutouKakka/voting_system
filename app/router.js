@@ -1,11 +1,15 @@
 const Router = require('koa-router');
+const { validation } = require('swagger-ajv').middlewares.koa;
 
+const schemas = require('./schemas');
 const commonController = require('./controllers/common');
 const adminCampaignsController = require('./controllers/admin/campaigns');
 const adminVotes = require('./controllers/admin/votes');
 const campaignsController = require('./controllers/campaigns');
 
 const router = new Router();
+
+// router.use(validation(schemas.ajv));
 
 // health check
 router.get('/whoami', commonController.whoami);
@@ -19,6 +23,7 @@ router
 
 // admin endpoints
 router
+	.use(validation(schemas.ajv)) // only enable swagger for API endpoints
 	.post('/admin/campaigns', adminCampaignsController.create)
 	.get('/admin/campaigns', adminCampaignsController.findMultiple)
 	.get('/admin/campaigns/:id', adminCampaignsController.find)

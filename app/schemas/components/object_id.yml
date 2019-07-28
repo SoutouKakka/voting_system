@@ -1,0 +1,8 @@
+components:
+  schemas:
+    ObjectId:
+      type: string
+      minLength: 24
+      maxLength: 24
+      description: MongoDB ObjectId
+      example: 5d3c7dbece7d4d3870d91ba8

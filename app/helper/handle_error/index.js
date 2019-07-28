@@ -28,8 +28,26 @@ const ERROR_KEYS = {
 		status: 404,
 		metaCode: 4042,
 		message: 'Campaign choice not found'
+	},
+	SchemaValidationError: {
+		status: 422,
+		metaCode: 422,
+		message: 'Schema Validation Error'
+	},
+	INTERNAL: {
+		status: 500,
+		metaCode: 5000,
+		message: 'Internal Error.'
 	}
 };
+
+class CustomError extends Error {
+	constructor(key) {
+		super(key.toString());
+		this.ERROR_KEY = key;
+		this.details = [];
+	}
+}
 
 function appendErrorMessage(ctx, errorKey) {
 	const { status, metaCode: code, message } = errorKey;
@@ -43,4 +61,4 @@ function appendErrorMessage(ctx, errorKey) {
 	ctx.status = status;
 }
 
-module.exports = { ERROR_KEYS, appendErrorMessage };
+module.exports = { ERROR_KEYS, appendErrorMessage, CustomError };

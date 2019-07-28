@@ -1,0 +1,60 @@
+paths:
+  "/admin/campaigns":
+    post:
+      tags:
+        - Campaigns
+      summary: Create new campaign
+      operationID: create_new_campaign
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  type: string
+                  description: Name of campaign
+                description:
+                  type: string
+                  description: Description of campaign
+                image:
+                  type: string
+                  description: Image URL for campaign
+                start_time:
+                  type: string
+                  format: date
+                  example: '2019-01-01'
+                  description: Start time of campaign
+                end_time:
+                  type: string
+                  format: date
+                  example: '2019-01-01'
+                  description: End time of campaign
+                choices:
+                  type: array
+                  minItems: 2
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        description: Name of choice
+                        example: "Choice for campaign"
+                      image:
+                        type: string
+                        description: Image URL for choice
+              required:
+                - name
+                - start_time
+                - end_time
+                - choices
+      responses:
+        201:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                properties:
+                  meta:
+                    $ref: "#/components/schemas/MetaCreated"
+                  data:
+                    $ref: "#/components/schemas/CampaignResource"

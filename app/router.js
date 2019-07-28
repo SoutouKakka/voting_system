@@ -27,7 +27,7 @@ router
 	.post('/admin/campaigns', adminCampaignsController.create)
 	.get('/admin/campaigns', adminCampaignsController.findMultiple)
 	.get('/admin/campaigns/:id', adminCampaignsController.find)
-	.put('/admin/campaigns/:id', adminCampaignsController.update)
+	.patch('/admin/campaigns/:id', adminCampaignsController.update)
 	.delete('/admin/campaigns/:id', adminCampaignsController.remove)
 	.get('/admin/campaigns/:id/result', adminCampaignsController.getResult)
 

@@ -1,17 +1,20 @@
 components:
   schemas:
-    ChoiceResource:
+    VoteResource:
       type: object
       properties:
         _id:
           $ref: "#/components/schemas/ObjectId"
-        name:
+        hkid_hash:
           type: string
-          example: 'A choice for campaign'
-        image:
-          type: string
-          description: Image URL for a choice
-          exmaple: 'www.image-for-choice.jpg'
+          description: Hash of voter's HKID
+          example: 65f7d94e9ee782c93a9daf50c2f07641
+        campaign_id:
+          description: ID of campaign
+          $ref: "#/components/schemas/ObjectId"
+        choice_id:
+          description: ID of choice
+          $ref: "#/components/schemas/ObjectId"
         created_at:
           type: string
           format: date-time

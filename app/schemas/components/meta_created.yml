@@ -1,0 +1,14 @@
+components:
+  schemas:
+    MetaCreated:
+      type: object
+      properties:
+        code:
+          enum:
+            - 201
+        message:
+          type: string
+          example: OK
+      required:
+        - code
+        - message

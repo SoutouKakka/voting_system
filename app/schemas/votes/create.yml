@@ -1,0 +1,37 @@
+paths:
+  "/admin/votes":
+    post:
+      tags:
+        - Votes
+      summary: Make vote for campaign
+      operationID: make_vote_for_campaign
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                hkid:
+                  type: string
+                  description: HKID of voter
+                  example: AL9163552
+                campaign_id:
+                  description: ID of campaign
+                  $ref: "#/components/schemas/ObjectId"
+                choice_id:
+                  description: ID of choice
+                  $ref: "#/components/schemas/ObjectId"
+              required:
+                - hkid
+                - campaign_id
+                - choice_id
+      responses:
+        201:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                properties:
+                  meta:
+                    $ref: "#/components/schemas/MetaCreated"
+                  data:
+                    $ref: "#/components/schemas/VoteResource"

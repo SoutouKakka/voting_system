@@ -1,0 +1,35 @@
+components:
+  schemas:
+    CampaignResultResource:
+      type: object
+      properties:
+        _id:
+          $ref: "#/components/schemas/ObjectId"
+        name:
+          type: string
+          example: 'Title of a campaign'
+        description:
+          type: string
+          example: 'Description of a campaign'
+        image:
+          type: string
+          description: Image URL for a campaign
+          example: 'www.image-for-campaign.jpg'
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              _id:
+                $ref: "#/components/schemas/ObjectId"
+              name:
+                type: string
+                description: Name of choice
+                example: "Choice for campaign"
+              image:
+                type: string
+                description: Image URL for choice
+              count:
+                type: number
+                description: Vote count of this choice
+                example: 1000

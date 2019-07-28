@@ -4,8 +4,7 @@ components:
       type: object
       properties:
         _id:
-          schema:
-            $ref: "#/components/schemas/ObjectId"
+          $ref: "#/components/schemas/ObjectId"
         name:
           type: string
           example: 'Title of a campaign'
@@ -26,10 +25,9 @@ components:
           example: '2019-01-01T00:00:00Z'
         choices:
           type: array
-          minItems: 2
           items:
             type: object
-            $ref: "#/components/schemas/ObjectId"
+            $ref: "#/components/schemas/ChoiceResource"
         created_at:
           type: string
           format: date-time

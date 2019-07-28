@@ -14,13 +14,14 @@ async function getResult(ctx) {
 		return;
 	}
 	const {
-		_id, name, description, choices, start_time: startTime, end_time: endTime
+		_id, name, description, image, choices, start_time: startTime, end_time: endTime
 	} = campaign;
 	const timeFormat = 'MMM D, YYYY';
 	const meta = {
 		_id: _id.toString(),
 		name,
 		description,
+		image,
 		startTime: moment.utc(startTime).format(timeFormat),
 		endTime: moment.utc(endTime).format(timeFormat),
 		choices: []

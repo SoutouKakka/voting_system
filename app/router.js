@@ -31,8 +31,7 @@ router
 	.delete('/admin/campaigns/:id', adminCampaignsController.remove)
 	.get('/admin/campaigns/:id/result', adminCampaignsController.getResult)
 
-	.post('/admin/votes', adminVotes.create)
-	.get('/admin/votes/count', adminVotes.getCount);
+	.post('/admin/votes', adminVotes.create);
 
 
 module.exports = router;

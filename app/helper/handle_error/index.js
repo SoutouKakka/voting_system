@@ -7,7 +7,7 @@ const ERROR_KEYS = {
 	CAMPAIGN_TIME_INVALID: {
 		status: 400,
 		metaCode: 4002,
-		message: 'Start time or end time for this campaign is invalid'
+		message: 'Start time or end time for campaign is invalid'
 	},
 	ALREADY_VOTED: {
 		status: 400,
@@ -49,16 +49,4 @@ class CustomError extends Error {
 	}
 }
 
-function appendErrorMessage(ctx, errorKey) {
-	const { status, metaCode: code, message } = errorKey;
-	ctx.body = {
-		meta: {
-			code,
-			message
-		},
-		data: {}
-	};
-	ctx.status = status;
-}
-
-module.exports = { ERROR_KEYS, appendErrorMessage, CustomError };
+module.exports = { ERROR_KEYS, CustomError };

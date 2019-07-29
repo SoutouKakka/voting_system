@@ -1,9 +1,17 @@
 const _ = require('lodash');
 const moment = require('moment');
 const campaignModel = require('../../models/campaigns');
+const validateDate = require('../../helper/date_format_validator');
+
 
 async function findMultiple(ctx) {
-	const { query: { start_time: startTime, end_time: endTime } } = ctx;
+	let { query: { start_time: startTime, end_time: endTime } } = ctx;
+	if (!validateDate(startTime)) {
+		startTime = '';
+	}
+	if (!validateDate(endTime)) {
+		endTime = '';
+	}
 	const searchResults = await campaignModel.findByStartTimeEndTime(startTime, endTime);
 	// prettify campaigns array
 	const campaigns = _.map(searchResults, (searchResult) => {

@@ -18,12 +18,6 @@ class Campaign {
 		});
 	}
 
-	static async findChoiceIDsByID(CampaignID) {
-		return CampaignModel.findOne({
-			_id: CampaignID
-		}, { 'choices._id': 1 }).lean();
-	}
-
 	static async findByStartTimeEndTime(startTime, endTime) {
 		const query = {};
 		if (startTime) {

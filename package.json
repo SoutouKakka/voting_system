@@ -4,7 +4,7 @@
   "description": "his is a simple voting system which allow user to create and vote for campaign by front-end and back-end.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node ./bin/server.js"
   },
   "repository": {
@@ -40,6 +40,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
     "jest": "^24.8.0",
-    "lodash.merge": ">=4.6.2"
+    "lodash.merge": ">=4.6.2",
+    "mockingoose": "^2.13.2"
   }
 }

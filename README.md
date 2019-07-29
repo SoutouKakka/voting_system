@@ -32,3 +32,13 @@ $ npm install
 ```
 $ NODE_ENV=[your_environment] npm start
 ```
+### Logging
+This service enables console logging for request and responses.  
+You may use `bunyan` for betting formatted logs
+```
+$ npm install -g bunyan
+```
+Add `| bunyan` after `npm start`
+```
+$ npm start | bunyan
+```

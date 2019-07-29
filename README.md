@@ -22,3 +22,13 @@ $ nvm install 10
 $ npm install
 ```
 </details>
+
+### Usage
+1. Copy `config/development.example.js` to `config/development.js`
+2. Copy `config/production.example.js` to `config/production.js`
+3. Fill in `config/development.js` with your MongoDB Atlas connection string and database name (you may change the server port also if you want)
+4. Fill in `config/production.js` with your API server port
+5. Start the process
+```
+$ NODE_ENV=[your_environment] npm start
+```

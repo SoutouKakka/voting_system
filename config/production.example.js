@@ -1,5 +1,6 @@
 module.exports = {
-	server: {
-		port: 1111 // example
+	mongodbAtlas: {
+		address: '<YOUR_MONGODB_ATLAS_CONNECTION_STRING>',
+		database: '<YOUR_DATABASE_NAME>'
 	}
 };

@@ -9,8 +9,6 @@ const campaignsController = require('./controllers/campaigns');
 
 const router = new Router();
 
-// router.use(validation(schemas.ajv));
-
 // health check
 router.get('/whoami', commonController.whoami);
 

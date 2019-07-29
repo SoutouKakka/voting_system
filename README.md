@@ -32,6 +32,10 @@ Developemtn config contains all credentials needed for development, also which p
 Production config contains credentials which is different from the development config, you only need to put the fields you need to update.
 1. Copy `config/production.example.js` to `config/production.js`
 2. Fill in `config/production.js` with your production MongoDB Atlas connection string and database name
+3. If you don't need a production config, simple exports a empty object in `config/production.js`
+```
+module.exports = {};
+```
 </details>
 
 ### Usage

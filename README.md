@@ -1,7 +1,5 @@
 # voting_system
 This is a simple voting system which allow user to create and vote for campaign by front-end and back-end.  
-Front-end site: [http://localhost:1234/campaigns](http://localhost:1234/campaigns)  
-Back-end docs: [http://localhost:1234/docs](http://localhost:1234/docs)
 <details>
 <summary><strong>Environment setup</strong></summary>
 
@@ -41,6 +39,9 @@ Production config contains credentials which is different from the development c
 ```
 $ NODE_ENV=[your_environment] npm start
 ```
+Default config endpoints:  
+Front-end site: [http://localhost:1234/campaigns](http://localhost:1234/campaigns)  
+Back-end docs: [http://localhost:1234/docs](http://localhost:1234/docs)
 ### Logging
 This service enables console logging for request and responses.  
 You may use `bunyan` for betting formatted logs

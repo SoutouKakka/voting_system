@@ -23,12 +23,18 @@ $ npm install
 ```
 </details>
 
-### Usage
+### Config
+There are 2 set of config files under the `config` directory:
+#### Development config
+Developemtn config contains all credentials needed for development, also which port your API uses.  
 1. Copy `config/development.example.js` to `config/development.js`
-2. Copy `config/production.example.js` to `config/production.js`
-3. Fill in `config/development.js` with your MongoDB Atlas connection string and database name (you may change the server port also if you want)
-4. Fill in `config/production.js` with your API server port
-5. Start the process
+2. Fill in `config/development.js` with your MongoDB Atlas connection string and database name (you may change the server port also if you want)
+#### Production config
+Production config contains credentials which is different from the development config, you only need to put the fields you need to update.
+1. Copy `config/production.example.js` to `config/production.js`
+2. Fill in `config/production.js` with your production MongoDB Atlas connection string and database name
+### Usage
+1. Start the process
 ```
 $ NODE_ENV=[your_environment] npm start
 ```

@@ -1,6 +1,6 @@
 # voting_system
-This is a simple voting system which allow user to create and vote for campaign by front-end and back-end.
-Front-end site: [http://localhost:1234/campaigns](http://localhost:1234/campaigns)
+This is a simple voting system which allow user to create and vote for campaign by front-end and back-end.  
+Front-end site: [http://localhost:1234/campaigns](http://localhost:1234/campaigns)  
 Back-end docs: [http://localhost:1234/docs](http://localhost:1234/docs)
 <details>
 <summary><strong>Environment setup</strong></summary>

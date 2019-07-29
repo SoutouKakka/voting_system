@@ -10,8 +10,8 @@ const VoteModel = mongoose.model('Vote', voteSchema);
 
 const campaignController = require('../index');
 
-describe('Admin campaign endpoints', () => {
-	beforeEach(() => {
+describe('/admin/campaigns endpoints', () => {
+	afterEach(() => {
 		mockingoose.resetAll();
 	});
 	describe('/POST /admin/campaigns', () => {
@@ -26,7 +26,7 @@ describe('Admin campaign endpoints', () => {
 				}
 			};
 			const mockReturn = {};
-			mockingoose(CampaignModel).toReturn(mockReturn, 'create');
+			mockingoose(CampaignModel).toReturn(mockReturn, 'save');
 			let error;
 			try {
 				await campaignController.create(ctx);

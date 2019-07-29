@@ -3,8 +3,8 @@ paths:
     delete:
       tags:
         - Campaigns
-      summary: Find campaign By ID
-      operationID: find_campaign_by_id
+      summary: Remove campaign By ID
+      operationID: remove_campaign_by_id
       parameters:
         - in: path
           name: id

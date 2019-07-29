@@ -3,8 +3,8 @@ paths:
     patch:
       tags:
         - Campaigns
-      summary: Update campaign
-      operationID: update_campaign
+      summary: Update campaign By ID
+      operationID: update_campaign_by_id
       parameters:
         - in: path
           name: id

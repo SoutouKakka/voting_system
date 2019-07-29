@@ -1,6 +1,6 @@
 module.exports = {
 	server: {
-		port: '<YOUR_SERVER_PORT>'
+		port: 1234 // default port used in readme
 	},
 	mongodbAtlas: {
 		address: '<YOUR_MONGODB_ATLAS_CONNECTION_STRING>',

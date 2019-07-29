@@ -22,8 +22,9 @@ $ nvm install 10
 $ npm install
 ```
 </details>
+<details>
+<summary><strong>Config files setup (Important)</strong></summary>
 
-### Config
 There are 2 set of config files under the `config` directory:
 #### Development config
 Developemtn config contains all credentials needed for development, also which port your API uses.  
@@ -33,6 +34,8 @@ Developemtn config contains all credentials needed for development, also which p
 Production config contains credentials which is different from the development config, you only need to put the fields you need to update.
 1. Copy `config/production.example.js` to `config/production.js`
 2. Fill in `config/production.js` with your production MongoDB Atlas connection string and database name
+</details>
+
 ### Usage
 1. Start the process
 ```

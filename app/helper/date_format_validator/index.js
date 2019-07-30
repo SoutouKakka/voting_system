@@ -1,9 +1,9 @@
 const moment = require('moment');
 
-function validateDate(timeString) {
+function validateDateFormat(timeString) {
 	const dateFormat = 'YYYY-MM-DD';
 	const time = moment.utc(timeString, dateFormat);
 	return time.isValid();
 }
 
-module.exports = validateDate;
+module.exports = validateDateFormat;

@@ -1,17 +1,19 @@
 const moment = require('moment');
 
 const { ERROR_KEYS, CustomError } = require('../../../helper/handle_error');
-const validateDate = require('../../../helper/date_format_validator');
+const validateDateFormat = require('../../../helper/date_format_validator');
 const campaignModel = require('../../../models/campaigns');
 
 async function create(ctx) {
 	const { request: { body } } = ctx;
 	const dateForamt = 'YYYY-MM-DD';
+	const now = moment.utc();
 	const startTime = moment.utc(body.start_time, dateForamt);
 	const endTime = moment.utc(body.end_time, dateForamt);
-	if (!validateDate(body.start_time)
-		|| !validateDate(body.end_time)
-		|| !startTime.isSameOrBefore(endTime)) {
+	if (!validateDateFormat(body.start_time)
+		|| !validateDateFormat(body.end_time)
+		|| startTime.isAfter(endTime)
+		|| endTime.isBefore(now)) {
 		// campaign time is not valid
 		throw new CustomError(ERROR_KEYS.CAMPAIGN_TIME_INVALID);
 	}

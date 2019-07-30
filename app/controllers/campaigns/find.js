@@ -14,7 +14,7 @@ async function find(ctx) {
 	}
 	// form campaign meta to pug
 	const {
-		_id, name, description, image, startTime, end_time: endTime, choices
+		_id, name, description, image, start_time: startTime, end_time: endTime, choices
 	} = campaign;
 	const timeFormat = 'MMM D, YYYY';
 	const meta = {

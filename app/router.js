@@ -1,5 +1,6 @@
 const Router = require('koa-router');
 const { validation } = require('swagger-ajv').middlewares.koa;
+const { RateLimit } = require('koa2-ratelimit');
 
 const schemas = require('./schemas');
 const commonController = require('./controllers/common');
@@ -19,15 +20,19 @@ router
 // only enable swagger for API endpoints
 router.use(validation(schemas.ajv));
 
-// admin endpoints
+// backend endpoints
+const backendRateLimit = RateLimit.middleware({
+	windowMs: 60000, // 1 min
+	max: 10
+});
 router
-	.get('/whoami', commonController.whoami) // health check
-	.post('/admin/campaigns', adminCampaignsController.create)
-	.get('/admin/campaigns', adminCampaignsController.findMultiple)
-	.get('/admin/campaigns/:id', adminCampaignsController.find)
-	.patch('/admin/campaigns/:id', adminCampaignsController.update)
-	.delete('/admin/campaigns/:id', adminCampaignsController.remove)
-	.get('/admin/campaigns/:id/result', adminCampaignsController.getResult)
+	.get('/whoami', commonController.whoami) // health check, no rate limit
+	.post('/admin/campaigns', backendRateLimit, adminCampaignsController.create)
+	.get('/admin/campaigns', backendRateLimit, adminCampaignsController.findMultiple)
+	.get('/admin/campaigns/:id', backendRateLimit, adminCampaignsController.find)
+	.patch('/admin/campaigns/:id', backendRateLimit, adminCampaignsController.update)
+	.delete('/admin/campaigns/:id', backendRateLimit, adminCampaignsController.remove)
+	.get('/admin/campaigns/:id/result', backendRateLimit, adminCampaignsController.getResult)
 
 	.post('/admin/votes', adminVotes.create);
 

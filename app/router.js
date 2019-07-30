@@ -1,7 +1,8 @@
 const Router = require('koa-router');
 const { validation } = require('swagger-ajv').middlewares.koa;
-const { RateLimit } = require('koa2-ratelimit');
+const { RateLimit, Stores } = require('koa2-ratelimit');
 
+const config = require('../config');
 const schemas = require('./schemas');
 const commonController = require('./controllers/common');
 const adminCampaignsController = require('./controllers/admin/campaigns');
@@ -9,6 +10,20 @@ const adminVotes = require('./controllers/admin/votes');
 const campaignsController = require('./controllers/campaigns');
 
 const router = new Router();
+
+// rate limiting options
+RateLimit.defaultOptions({
+	store: new Stores.Redis({
+		host: config.redis.address,
+		port: config.redis.port,
+		db: 1
+	})
+});
+// rate limit for backend endpoints
+const backendRateLimit = RateLimit.middleware({
+	windowMs: 60000, // 1 min
+	max: 10
+});
 
 // view endpoints
 router
@@ -20,11 +35,6 @@ router
 // only enable swagger for API endpoints
 router.use(validation(schemas.ajv));
 
-// backend endpoints
-const backendRateLimit = RateLimit.middleware({
-	windowMs: 60000, // 1 min
-	max: 10
-});
 router
 	.get('/whoami', commonController.whoami) // health check, no rate limit
 	.post('/admin/campaigns', backendRateLimit, adminCampaignsController.create)

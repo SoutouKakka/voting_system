@@ -21,17 +21,17 @@ $ npm install
 ```
 </details>
 <details>
-<summary><strong>Config files setup (Important)</strong></summary>
+<summary><strong>Config files setup (IMPORTANT)</strong></summary>
 
 There are 2 set of config files under the `config` directory:
 #### Development config
 Developemtn config contains all credentials needed for development, also which port your API uses.  
 1. Copy `config/development.example.js` to `config/development.js`
-2. Fill in `config/development.js` with your MongoDB Atlas connection string and database name (you may change the server port also if you want)
+2. Fill in `config/development.js` with your MongoDB address and database name (you may change the server port also if you want)
 #### Production config
 Production config contains credentials which is different from the development config, you only need to put the fields you need to update.
 1. Copy `config/production.example.js` to `config/production.js`
-2. Fill in `config/production.js` with your production MongoDB Atlas connection string and database name
+2. Fill in `config/production.js` with your production MongoDB address and database name
 3. If you don't need a production config, simple exports a empty object in `config/production.js`
 ```
 module.exports = {};

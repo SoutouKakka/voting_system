@@ -9,9 +9,6 @@ const campaignsController = require('./controllers/campaigns');
 
 const router = new Router();
 
-// health check
-router.get('/whoami', commonController.whoami);
-
 // view endpoints
 router
 	.get('/campaigns', campaignsController.findMultiple)
@@ -19,9 +16,12 @@ router
 	.get('/campaigns/:id', campaignsController.find)
 	.get('/campaigns/:id/result', campaignsController.getResult);
 
+// only enable swagger for API endpoints
+router.use(validation(schemas.ajv));
+
 // admin endpoints
 router
-	.use(validation(schemas.ajv)) // only enable swagger for API endpoints
+	.get('/whoami', commonController.whoami) // health check
 	.post('/admin/campaigns', adminCampaignsController.create)
 	.get('/admin/campaigns', adminCampaignsController.findMultiple)
 	.get('/admin/campaigns/:id', adminCampaignsController.find)

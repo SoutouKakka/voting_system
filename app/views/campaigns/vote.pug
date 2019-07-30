@@ -14,7 +14,7 @@ html
                 if campaign.image
                     img(src=campaign.image)
             div
-                form(name="choices" class="choices" onsubmit="makeVote(this); return false;")
+                form(name="choices" class="choices" onsubmit="return false;")
                     div(name="choice-list")
                         each choice in campaign.choices
                             label(class=`choice-${choice.id}`)

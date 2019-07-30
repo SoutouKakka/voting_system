@@ -5,7 +5,7 @@ const development = require('./development');
 const production = require('./production');
 
 const developmentConfig = _.merge(_.cloneDeep(defaultConfig), development);
-const productionConfig = _.merge(_.cloneDeep(developmentConfig), production)
+const productionConfig = _.merge(_.cloneDeep(developmentConfig), production);
 
 const config = {
 	development: developmentConfig,

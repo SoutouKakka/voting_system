@@ -1,20 +1,18 @@
-doctype html
-html
-    include ../header.pug
-    body
-        div(class="campaign-background")
-            div(class="campaign-header")
-                h2= campaign.name
-            div(class="campaign-description")
-                p= campaign.description
-            div(class="campaign-details")
-                p #{campaign.startTime} - #{campaign.endTime}
-                if campaign.image
-                    img(src=campaign.image)
-            div(class="choices")
-                each choice in campaign.choices
-                    div(class="choice")
-                        p #{choice.choiceName}: #{choice.choiceCount} votes
-                        if choice.choiceImage
-                            img(src=choice.choiceImage)
+include ../header.pug
+body
+    div(class="campaign-background")
+        div(class="campaign-header")
+            h2= campaign.name
+        div(class="campaign-description")
+            p= campaign.description
+        div(class="campaign-details")
+            p #{campaign.startTime} - #{campaign.endTime}
+            if campaign.image
+                img(src=campaign.image)
+        div(class="choices")
+            each choice in campaign.choices
+                div(class="choice")
+                    p #{choice.choiceName}: #{choice.choiceCount} votes
+                    if choice.choiceImage
+                        img(src=choice.choiceImage)
 

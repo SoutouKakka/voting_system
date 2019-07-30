@@ -1,34 +1,32 @@
-doctype html
-html
-    include ../header.pug
-    script
-        include ../js/post_campaign.js
-    body
-        div(class="campaign-list")
-            h1 Create a new campaign
-            div(class="form")
-                form(name="campaign" class="new-campaign" onsubmit="return false;")
-                    div(class="campaign-main-fields")
+include ../header.pug
+script
+    include ../js/post_campaign.js
+body
+    div(class="campaign-list")
+        h1 Create a new campaign
+        div(class="form")
+            form(name="campaign" class="new-campaign" onsubmit="return false;")
+                div(class="campaign-main-fields")
+                    div(class="campaign-fields")
+                        p Name of campaign:
+                        input(type="text" name="name" placeholder="Name of campaign" required)
+                    div(class="campaign-fields")
+                        p Description of campaign:
+                        input(type="text" name="description" placeholder="Description of campaign")
+                    div(class="campaign-fields")
+                        p Image URL of campaign:
+                        input(type="text" name="image" placeholder="Image URL of campaign")
+                    div(class="campaign-fields")
+                        p Time span for campaign:
+                        input(type="text" name="start_time" placeholder="Start time of campaign - YYYY-MM-DD" required)
+                        input(type="text" name="end_time" placeholder="End time of campaign - YYYY-MM-DD" required)
+                div(class="campaign-choices")
+                    - var i = 0;
+                    while i < defaultChoiceLength
                         div(class="campaign-fields")
-                            p Name of campaign:
-                            input(type="text" name="name" placeholder="Name of campaign" required)
-                        div(class="campaign-fields")
-                            p Description of campaign:
-                            input(type="text" name="description" placeholder="Description of campaign")
-                        div(class="campaign-fields")
-                            p Image URL of campaign:
-                            input(type="text" name="image" placeholder="Image URL of campaign")
-                        div(class="campaign-fields")
-                            p Time span for campaign:
-                            input(type="text" name="start_time" placeholder="Start time of campaign - YYYY-MM-DD" required)
-                            input(type="text" name="end_time" placeholder="End time of campaign - YYYY-MM-DD" required)
-                    div(class="campaign-choices")
-                        - var i = 0;
-                        while i < defaultChoiceLength
-                            div(class="campaign-fields")
-                                p Name of choice #{i+1}:
-                                input(type="text" name=`choices[${i}]['name']` placeholder="Name of choice")
-                                p Image URL for choice:
-                                input(type="text" name=`choices[${i++}]['image']` placeholder="Image URL of choice")
-                    input(type="submit" value="Submit")
+                            p Name of choice #{i+1}:
+                            input(type="text" name=`choices[${i}]['name']` placeholder="Name of choice")
+                            p Image URL for choice:
+                            input(type="text" name=`choices[${i++}]['image']` placeholder="Image URL of choice")
+                input(type="submit" value="Submit")
 

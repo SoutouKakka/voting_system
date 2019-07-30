@@ -1,16 +1,14 @@
-doctype html
-html
-    include ../header.pug
-    body
-        div(class="campaign-list")
-            div(class="campaign-list-head")
-                div
-                    h1 Current votes:
-                div(class="campaign-list-new-button" onclick="window.location.href='/campaigns/new'")
-                    h2 + New campaign
-            each campaign in campaigns
-                div(class="campaign" onclick=`window.location.href='/campaigns/${campaign.id}${(campaign.active) ? '' : '/result'}'`)
-                    div(class="campaign-header")
-                        h2= campaign.name
-                    div(class="campaign-details")
-                        p #{campaign.startTime} - #{campaign.endTime}
+include ../header.pug
+body
+    div(class="campaign-list")
+        div(class="campaign-list-head")
+            div
+                h1 Current votes:
+            div(class="campaign-list-new-button" onclick="window.location.href='/campaigns/new'")
+                h2 + New campaign
+        each campaign in campaigns
+            div(class="campaign" onclick=`window.location.href='/campaigns/${campaign.id}${(campaign.active) ? '' : '/result'}'`)
+                div(class="campaign-header")
+                    h2= campaign.name
+                div(class="campaign-details")
+                    p #{campaign.startTime} - #{campaign.endTime}

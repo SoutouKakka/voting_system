@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const config = require('../../config');
 
 const { address, database } = config.mongodbAtlas;
-const connectionString = `${address}/${database}?retryWrites=true&w=majority`;
+const connectionString = `${address}/${database}`;
 
 async function createMongooseConnection() {
 	mongoose.set('useNewUrlParser', true);

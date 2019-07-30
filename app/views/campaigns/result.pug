@@ -2,13 +2,13 @@ doctype html
 html
     include ../header.pug
     body
-        div(class="campaign")
+        div(class="campaign-background")
             div(class="campaign-header")
-                h2= campaign.name                
+                h2= campaign.name
             div(class="campaign-description")
                 p= campaign.description
             div(class="campaign-details")
-                p #{campaign.startTime} | #{campaign.endTime}
+                p #{campaign.startTime} - #{campaign.endTime}
                 if campaign.image
                     img(src=campaign.image)
             div(class="choices")

@@ -3,16 +3,14 @@ html
     include ../header.pug
     script
         include ../js/post_vote.js
-    style
-        include ../css/radio.css
     body
-        div(class="campaign")
+        div(class="campaign-background")
             div(class="campaign-header")
-                h2= campaign.name                
+                h2= campaign.name
             div(class="campaign-description")
                 p= campaign.description
             div(class="campaign-details")
-                p #{campaign.startTime} | #{campaign.endTime}
+                p #{campaign.startTime} - #{campaign.endTime}
                 if campaign.image
                     img(src=campaign.image)
             div
@@ -21,7 +19,7 @@ html
                         each choice in campaign.choices
                             label(class=`choice-${choice.id}`)
                                 div(class="choice")
-                                    div 
+                                    div
                                         input(type="radio" name="choice_id" value=choice.id)
                                         | #{choice.name}
                                     if choice.image

@@ -8,6 +8,7 @@ $(function() {
 			alert('Please select a choice');
 			return;
 		}
+		form.hkid = form.hkid.replace(/\(/g, '').replace(/\)/g, '');
 		var rawResponse = await fetch('/admin/votes', {
 			method: 'POST',
 			headers: {

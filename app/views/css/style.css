@@ -70,6 +70,10 @@ img {
 	display: inline-flex;
 }
 
+.choice-list-text {
+    width: 100%;
+}
+
 .campaign-fields {
 	background: gainsboro;
 	display: grid;

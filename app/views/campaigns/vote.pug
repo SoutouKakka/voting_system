@@ -23,7 +23,7 @@ body
                                     | #{choice.name}
                                 if choice.image
                                     img(src=choice.image)
-                    input(type="text" name="hkid" placeholder="HKID with bracket value - example: E015881(3)" required)
+                    input(type="text" name="hkid" class="choice-list-text" placeholder="HKID with bracket value - example: E015881(3)" required)
                     input(type="hidden" name="campaign_id" value=campaign.id)
                 div(class="submit")
                     input(type="submit" value="Submit")

@@ -13,6 +13,8 @@ async function create(ctx) {
 		// hkid is not valid
 		throw new CustomError(ERROR_KEYS.HKID_INVALID);
 	}
+	// remove all non-alphanumeric characters
+	const tidyHkid = hkid.replace(/[^a-zA-Z0-9]/g, '');
 	const campaign = await campaignModel.findByID(campaignID);
 	// check if campaign exists
 	if (!campaign) {
@@ -33,7 +35,7 @@ async function create(ctx) {
 	if (campaignChoiceIDs.indexOf(choiceID) === -1) {
 		throw new CustomError(ERROR_KEYS.CHOICE_NOT_FOUND);
 	}
-	const hkidHash = voteModel.hash(hkid);
+	const hkidHash = voteModel.hash(tidyHkid);
 	const existingVote = await voteModel.findByCampaignIDHkidHash(campaignID, hkidHash);
 	if (existingVote) {
 		// already voted

@@ -21,7 +21,11 @@ $ npm install
 ```
 3. Start the process (Node 8+)
 ```
-$ NODE_ENV=[your_environment] npm start
+$ npm start
+```  
+or  
+```
+$ NODE_ENV=production npm start
 ```
 Default config endpoints:  
 Front-end site: [http://localhost:1234/campaigns](http://localhost:1234/campaigns?start_time=2019-07-01&end_time=2020-07-01)  

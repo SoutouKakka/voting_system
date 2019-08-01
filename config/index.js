@@ -1,10 +1,8 @@
 const _ = require('lodash');
 
-const defaultConfig = require('./default');
-const development = require('./development');
+const developmentConfig = require('./development');
 const production = require('./production');
 
-const developmentConfig = _.merge(_.cloneDeep(defaultConfig), development);
 const productionConfig = _.merge(_.cloneDeep(developmentConfig), production);
 
 const config = {

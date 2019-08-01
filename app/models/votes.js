@@ -28,6 +28,12 @@ class Vote {
 			choice_id: choiceID
 		});
 	}
+
+	static async getCountByCampaignID(campaignID) {
+		return VoteModel.countDocuments({
+			campaign_id: campaignID
+		});
+	}
 }
 
 module.exports = Vote;

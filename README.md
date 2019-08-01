@@ -1,45 +1,15 @@
 # voting_system
 This is a simple voting system which allow user to create and vote for campaign by front-end and back-end.  
-<details>
-<summary><strong>Environment setup</strong></summary>
-
-1. Install [NVM (Node Version Manager)](https://github.com/nvm-sh/nvm)
+### Usage
+1. Startup stacks in local environment
 ```
-$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+$ docker-compose up -d
 ```
-2. Install node.js version 10
-```
-$ nvm install 10
-```
-</details>
-<details>
-<summary><strong>Install node modules</strong></summary>
-
-1. Use NPM to install required node modules
+2. Install node modules
 ```
 $ npm install
 ```
-</details>
-<details>
-<summary><strong>Config files setup (IMPORTANT)</strong></summary>
-
-There are 2 set of config files under the `config` directory:
-#### Development config
-Developemtn config contains all credentials needed for development, also which port your API uses.  
-1. Copy `config/development.example.js` to `config/development.js`
-2. Fill in `config/development.js` with your MongoDB address and database name (you may change the server port also if you want)
-#### Production config
-Production config contains credentials which is different from the development config, you only need to put the fields you need to update.
-1. Copy `config/production.example.js` to `config/production.js`
-2. Fill in `config/production.js` with your production MongoDB address and database name
-3. If you don't need a production config, simple exports a empty object in `config/production.js`
-```
-module.exports = {};
-```
-</details>
-
-### Usage
-1. Start the process
+3. Start the process (Node 8+)
 ```
 $ NODE_ENV=[your_environment] npm start
 ```

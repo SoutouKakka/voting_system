@@ -3,6 +3,9 @@
   "version": "1.3.1",
   "description": "his is a simple voting system which allow user to create and vote for campaign by front-end and back-end.",
   "main": "index.js",
+  "engines": {
+    "node": ">= 8.11.4"
+  },
   "scripts": {
     "test": "jest",
     "start": "node ./bin/server.js"

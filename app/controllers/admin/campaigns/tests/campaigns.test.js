@@ -1,3 +1,4 @@
+const mockdate = require('mockdate');
 const mongoose = require('mongoose');
 const mockingoose = require('mockingoose').default;
 const { ERROR_KEYS } = require('../../../../helper/handle_error');
@@ -13,6 +14,7 @@ const campaignController = require('../index');
 describe('/admin/campaigns endpoints', () => {
 	afterEach(() => {
 		mockingoose.resetAll();
+		mockdate.reset();
 	});
 	describe('/POST /admin/campaigns', () => {
 		it('should response 201', async () => {
@@ -27,6 +29,7 @@ describe('/admin/campaigns endpoints', () => {
 			};
 			const mockReturn = {};
 			mockingoose(CampaignModel).toReturn(mockReturn, 'save');
+			mockdate.set(1546300800000); // 2019-01-01
 			let error;
 			try {
 				await campaignController.create(ctx);

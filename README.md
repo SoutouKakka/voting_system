@@ -36,3 +36,7 @@ Add `| bunyan` after `npm start`
 ```
 $ npm start | bunyan
 ```
+### TODO
+- Scalable architecture
+- Display campaigns within start/end time and order by total number of votes.
+- Display most recent ended campaign afterward 

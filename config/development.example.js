@@ -1,3 +1,6 @@
+// Default development configs provided can be used with docker-compose
+// Copy this file to 'development.js'
+
 module.exports = {
 	server: {
 		port: 1234 // default port used in readme

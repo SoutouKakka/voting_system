@@ -1,3 +1,7 @@
+// Update any fields you need, below is an example
+// Copy this file to 'production.js'
+
+/*
 module.exports = {
 	mongodb: {
 		address: '<YOUR_MONGODB_ADDRESS>',
@@ -8,3 +12,6 @@ module.exports = {
 		port: '<YOUR_REDIS_PORT>'
 	}
 };
+ */
+
+module.exports = {};

@@ -1,5 +1,15 @@
 # voting_system
 This is a simple voting system which allow user to create and vote for campaign by front-end and back-end.  
+
+### Config
+#### Development config
+Copy and update parameters in `config/development.example.js` to `config/development.js`  
+Default development configs provided can be used with `docker-compose` 
+#### Production config
+Copy and update parameters in `config/production.example.js` to `config/production.js`  
+You can leave an empty module exports if you don't need a production config  
+```module.exports = {};```
+
 ### Usage
 1. Startup stacks in local environment
 ```

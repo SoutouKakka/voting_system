@@ -24,7 +24,7 @@ $ npm install
 $ NODE_ENV=[your_environment] npm start
 ```
 Default config endpoints:  
-Front-end site: [http://localhost:1234/campaigns](http://localhost:1234/campaigns)  
+Front-end site: [http://localhost:1234/campaigns](http://localhost:1234/campaigns?start_time=2019-07-01&end_time=2020-07-01)  
 Back-end docs: [http://localhost:1234/docs](http://localhost:1234/docs)
 ### Logging
 This service enables console logging for request and responses.  
